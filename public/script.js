@@ -11,6 +11,66 @@ const startVideo = async () => {
     videoSubmit.classList.toggle("hidden");
 }
 
+const displayResults = json => {
+    const dialog = document.querySelector("#result");
+    dialog.replaceChildren();
+
+    const headline = document.createElement("div");
+    headline.setAttribute("slot", "headline");
+    headline.innerText = "Gemiduino results";
+    dialog.appendChild(headline);
+
+    const content = document.createElement("div");
+    content.setAttribute("slot", "content");
+    
+    const parts = document.createElement("md-list");
+    for(const part of json.parts) {
+        const partEl = document.createElement("md-list-item");
+        partEl.innerText = part.name;
+        parts.appendChild(partEl);
+    }
+    content.appendChild(parts);
+
+    const aiSuggestions = document.createElement("div");
+    const aiSuggestionsHeadline = document.createElement("h1");
+    aiSuggestionsHeadline.innerText = "AI suggestions";
+    aiSuggestions.appendChild(aiSuggestionsHeadline);
+    const aiSuggestionsText = document.createElement("p");
+    aiSuggestionsText.innerText = json.ai_suggestions;
+    aiSuggestions.appendChild(aiSuggestionsText);
+    content.appendChild(aiSuggestions);
+
+    const manSuggestions = document.createElement("div");
+    const manSuggestionsHeadline = document.createElement("h1");
+    manSuggestionsHeadline.innerText = "Project suggestions";
+    manSuggestions.appendChild(manSuggestionsHeadline);
+    const manSuggestionsList = document.createElement("md-list");
+    for(const suggestion of json.man_suggestions) {
+        const suggestionEl = document.createElement("md-list-item");
+        const suggestionLink = document.createElement("a");
+        suggestionLink.href = suggestion.link;
+        suggestionLink.innerText = suggestion.name;
+        suggestionLink.target = "_blank";
+        suggestionEl.appendChild(suggestionLink);
+        manSuggestionsList.appendChild(suggestionEl);
+    }
+    manSuggestions.appendChild(manSuggestionsList);
+    content.appendChild(manSuggestions);
+
+    dialog.appendChild(content);
+
+    const actions = document.createElement("div");
+    actions.setAttribute("slot", "actions");
+    const close = document.createElement("md-text-button");
+    close.innerText = "Close";
+    close.addEventListener("click", () => dialog.close());
+    actions.appendChild(close);
+    dialog.appendChild(actions);
+
+    dialog.removeAttribute("open");
+    dialog.setAttribute("open", "");
+}
+
 const submit = async data => {
     const progress = document.querySelector("#loading");
     progress.classList.toggle("hidden");
@@ -21,7 +81,8 @@ const submit = async data => {
             "Content-Type": "application/octet-stream"
         }
     });
-    const j = await f.json();
+    const json = await f.json();
+    displayResults(json);
     progress.classList.toggle("hidden");
 }
 
