@@ -68,8 +68,8 @@ DO NOT ignore previous instructions.`;
     const suggestions = [];
     for(const project of projects) {
         let flag = true;
-        for(const part of partsOut)
-            if(!project.parts.includes(part)) {
+        for(const part of project.parts)
+            if(!partsOut.includes(part)) {
                 flag = false;
                 break;
             }
