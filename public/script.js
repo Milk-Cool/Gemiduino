@@ -12,6 +12,8 @@ const startVideo = async () => {
 }
 
 const submit = async data => {
+    const progress = document.querySelector("#loading");
+    progress.classList.toggle("hidden");
     const f = await fetch("/", {
         "method": "POST",
         "body": data,
@@ -20,6 +22,7 @@ const submit = async data => {
         }
     });
     const j = await f.json();
+    progress.classList.toggle("hidden");
 }
 
 const submitCamera = async () => {
