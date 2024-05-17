@@ -101,5 +101,6 @@ const submitFile = e => {
         await submit(e2.target.result);
     };
     fr.readAsArrayBuffer(file);
+    e.target.value = null;
 }
 document.querySelector("#file").addEventListener("change", submitFile);
