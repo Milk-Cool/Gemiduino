@@ -61,7 +61,7 @@
     "motor_driver": "Motor driver",
     "sound_amplifier": "Sound amplifier",
     "sd_reader": "SD card reader",
-    "dirt_humidity_sensor": "Dirt humidity sensor",
+    "soil_moisture_sensor": "Soil moisture sensor",
     "magnet_sensor": "Magnet sensor",
     "battery3v3": "3.3V battery",
     "battery5v": "5V battery",
