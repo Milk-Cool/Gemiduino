@@ -5,6 +5,8 @@ import fs from "fs";
 import { join } from "path";
 const { MAGIC_MIME_TYPE, Magic } = mmm;
 
+const ipQuota = {};
+
 const magic = new Magic(MAGIC_MIME_TYPE);
 
 const partsJSON = JSON.parse(fs.readFileSync("data/parts.json", "utf-8"));
@@ -42,6 +44,18 @@ app.use(express.raw({
 }));
 
 app.post("/", async (req, res) => {
+    const ip = req.socket.remoteAddress;
+    if(!ip) return;
+    if(ip in ipQuota) {
+        if(ipQuota[ip] > 10)
+            return res.status(429).end(JSON.stringify({
+                "error": "Too many requests! Please try again in an hour."
+            }));
+        ipQuota[ip]++;
+        setTimeout(() => { ipQuota[ip]--; }, 60 * 60 * 1000);
+    } else ipQuota[ip] = 0;
+    if(DEBUG) console.log(ip, ipQuota[ip]);
+
     const buf = Buffer.from(req.body);
     const partsFile = Buffer.from(partsTXT);
     const image = {
