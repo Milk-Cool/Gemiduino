@@ -1,0 +1,5 @@
+{
+    "name": "Obstacle avoiding robot",
+    "link": "https://projecthub.arduino.cc/aakash11/obstacle-avoiding-robot-8018ae",
+    "parts": ["battery12v", "motor", "motor_driver", "dist_sensor", "servo"]
+}

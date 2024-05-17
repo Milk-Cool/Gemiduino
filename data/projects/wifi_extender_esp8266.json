@@ -1,0 +1,5 @@
+{
+    "name": "ESP8266 WiFi extender",
+    "link": "https://projecthub.arduino.cc/pius4109/esp8266-wifi-range-extender-arduino-522cf8",
+    "parts": ["esp8266_based"]
+}

@@ -1,0 +1,5 @@
+{
+    "name": "Line following robot",
+    "link": "https://projecthub.arduino.cc/lightthedreams/line-following-robot-34b1d3",
+    "parts": ["battery12v", "motor", "motor_driver"]
+}

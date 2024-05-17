@@ -1,0 +1,5 @@
+{
+    "name": "RFID lock system",
+    "link": "https://projecthub.arduino.cc/devansh_tangri/rfid-lock-system-with-mfrc522-3707a9",
+    "parts": ["buzzer", "transistor", "resistor", "rc522", "servo"]
+}

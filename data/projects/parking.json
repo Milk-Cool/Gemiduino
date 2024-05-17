@@ -1,0 +1,5 @@
+{
+    "name": "Parking sesnor",
+    "link": "https://projecthub.arduino.cc/jackaless/parking-sensor-4aa9d0",
+    "parts": ["dist_sensor", "buzzer"]
+}

@@ -1,0 +1,5 @@
+{
+    "name": "Jumpman game",
+    "link": "https://projecthub.arduino.cc/crepeguy/jumpman-lcd-game-c9aea0",
+    "parts": ["button", "lcd1602"]
+}

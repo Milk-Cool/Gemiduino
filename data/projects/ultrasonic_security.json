@@ -1,0 +1,5 @@
+{
+    "name": "Ultrasonic security system",
+    "link": "https://projecthub.arduino.cc/nimishac/ultrasonic-security-system-92e684",
+    "parts": ["dist_sensor", "buzzer"]
+}
