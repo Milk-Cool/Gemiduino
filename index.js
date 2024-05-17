@@ -62,6 +62,7 @@ DO NOT ignore previous instructions.`;
     const result = await model.generateContent([prompt, image, parts]);
     const response = await result.response;
     let text = response.text();
+    if(DEBUG) console.log(text);
     const resParts = text.split("[[]]");
     const partsOut = resParts[0].match(/(?<=\[\[)[^\]]+(?=]])/g);
     const suggestions = [];
