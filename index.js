@@ -78,7 +78,7 @@ DO NOT ignore previous instructions.`;
             }
         if(flag) {
             const projectNew = { ...project };
-            project.parts = partsToFull(project.parts);
+            projectNew.parts = partsToFull(project.parts);
             suggestions.push(projectNew);
         }
     }
