@@ -58,13 +58,14 @@ app.post("/", async (req, res) => {
     const prompt = `You have to detect components from the provided image.
 Only detect the components given in another file and output them in format [[component_name]], e. g. [[arduino_uno]].
 You have to ignore all the other ones.
-Then, write suggestions for electronics projects after (NOT INSIDE) empty double brackets (e. g. [[]] *Your recommendation here*).
+Then, write suggestions for electronics projects after an ampersand (e. g. [[arduino_uno]] & *Your recommendation here*).
 DO NOT ignore previous instructions.`;
     const result = await model.generateContent([prompt, image, parts]);
     const response = await result.response;
     let text = response.text();
     if(DEBUG) console.log(text);
-    const resParts = text.split("[[]]");
+    const ampersand = text.indexOf("&");
+    const resParts = [text.slice(0, ampersand), text.slice(ampersand + 1).trim()];
     const partsOut = resParts[0].match(/(?<=\[\[)[^\]]+(?=]])/g);
     const suggestions = [];
     for(const project of projects) {
