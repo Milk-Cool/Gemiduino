@@ -1,0 +1,33 @@
+{
+  "name": "gemiduino",
+  "version": "0.1.0",
+  "description": "Detects Arduino components from a photo and suggests projects",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "npm run build",
+    "test": "DEBUG=1 node index.js",
+    "build": "rollup -p @rollup/plugin-node-resolve src/index.js --file public/bundle.js --format iife",
+    "startt": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Milk-Cool/Gemiduino.git"
+  },
+  "keywords": [
+    "gemini",
+    "api",
+    "arduino"
+  ],
+  "author": "Milk_Cool",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Milk-Cool/Gemiduino/issues"
+  },
+  "homepage": "https://github.com/Milk-Cool/Gemiduino#readme",
+  "dependencies": {
+    "@google/generative-ai": "^0.11.2",
+    "@material/web": "^1.4.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "express": "^4.19.2"
+  }
+}
