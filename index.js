@@ -44,12 +44,16 @@ app.post("/", async (req, res) => {
     const buf = Buffer.from(req.body);
     const partsFile = Buffer.from(partsTXT);
     const image = {
-        inlineData: buf.toString("base64"),
-        mimeType: await mimeType(buf)
+        inlineData: {
+            data: buf.toString("base64"),
+            mimeType: await mimeType(buf)
+        }
     };
     const parts = {
-        inlineData: partsFile.toString("base64"),
-        mimeType: "text/plain"
+        inlineData: {
+            data: partsFile.toString("base64"),
+            mimeType: "text/plain",
+        }
     };
     const prompt = `You have to detect components from the provided image.
 Only detect the components given in another file and output them in format [[component_name]], e. g. [[arduino_uno]].
