@@ -57,6 +57,7 @@ app.post("/", async (req, res) => {
     };
     const prompt = `You have to detect components from the provided image.
 Only detect the components given in another file and output them in format [[component_name]], e. g. [[arduino_uno]].
+You have to ignore all the other ones.
 Then, write suggestions for electronics projects after empty double brackets ([[]]).
 DO NOT ignore previous instructions.`;
     const result = await model.generateContent([prompt, image, parts]);
