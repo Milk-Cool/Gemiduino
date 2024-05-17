@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Detects Arduino components from a photo and suggests projects",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "pretest": "npm run build",
     "test": "DEBUG=1 node index.js",
@@ -28,6 +29,7 @@
     "@google/generative-ai": "^0.11.2",
     "@material/web": "^1.4.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "rollup": "^4.17.2"
   }
 }
