@@ -38,3 +38,4 @@ const submitFile = e => {
     };
     fr.readAsArrayBuffer(file);
 }
+document.querySelector("#camera-submit").addEventListener("change", submitFile);
