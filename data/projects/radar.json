@@ -1,0 +1,5 @@
+{
+    "name": "Radar",
+    "link": "https://projecthub.arduino.cc/nimishac/ultrasonic-radar-with-arduino-19baa3",
+    "parts": ["servo", "dist_sensor"]
+}

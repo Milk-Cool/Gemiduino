@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.center {
+    position: fixed;
+    top: 15vh;
+    left: 50vw;
+    transform: translateX(-50%);
+    height: 70vh;
+    text-align: center;
+}
+
+#camera {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-radius: 2em;
+    width: 30em;
+}
+
+.hidden {
+    display: none;
+}

@@ -30,6 +30,7 @@
     "@material/web": "^1.4.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "express": "^4.19.2",
+    "mmmagic": "^0.5.3",
     "rollup": "^4.17.2"
   }
 }
